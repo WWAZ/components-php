@@ -228,25 +228,51 @@ abstract class Component extends BaseComponent
     }
 
     /**
-     * Shortcut: Returns rendered component.
+     * Shortcut: Returns property content by key:
+     * - Strings and numbers
+     * - or rendered components
      *
      * @param string $key
      * @return string
      */
-    public function cr($key)
+    public function content($key)
     {
         return $this->getContentMarkupByKey($key);
     }
 
     /**
-     * Shortcut: Returns component object.
+     * @see content()
+     *
+     * @param string $key
+     * @return string
+     * @deprecated
+     */
+    public function cr($key)
+    {
+        return $this->content($key);
+    }
+
+    /**
+     * Shortcut: Returns property object by key.
      *
      * @param string $key
      * @return object
      */
-    public function co($key)
+    public function object($key)
     {
         return $this->getContentByKey($key);
+    }
+
+    /**
+     * @see object()
+     *
+     * @param string $key
+     * @return object
+     * @deprecated
+     */
+    public function co($key)
+    {
+        return $this->object($key);
     }
 
     /**
@@ -268,5 +294,4 @@ abstract class Component extends BaseComponent
         }
         return $this->data['data'];
     }
-
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -8,19 +7,19 @@ use wwaz\Components\Config;
 class Image extends Component
 {
     protected $properties = [
-      'attributes' => [
-        'name' => '*',
-        'hash' => '*',
-        'ext' => '*',
-        'mime' => '*',
-        'width' => 'isInt|required',
-        'height' => 'isInt|required',
-        'size' => '*',
-        'path' => '*',
-        'url' => '*',
-        'alternativeText' => '*',
-        'formats' => '*'
-      ]
+        'attributes' => [
+            'name'            => '*',
+            'hash'            => '*',
+            'ext'             => '*',
+            'mime'            => '*',
+            'width'           => 'isInt|required',
+            'height'          => 'isInt|required',
+            'size'            => '*',
+            'path'            => '*',
+            'url'             => '*',
+            'alternativeText' => '*',
+            'formats'         => '*',
+        ],
     ];
 
     /**
@@ -31,11 +30,11 @@ class Image extends Component
      */
     protected function markup()
     {
-        $m = '<img';
+        $m  = '<img';
         $m .= ' src="' . $this->getSrc() . '"';
         $m .= ' width="' . $this->getAttribute('width') . '"';
-        $m .= ' height="'.$this->getAttribute('height').'"';
-        $m .= ' alt="'.$this->getAttribute('alternativeText').'"';
+        $m .= ' height="' . $this->getAttribute('height') . '"';
+        $m .= ' alt="' . $this->getAttribute('alternativeText') . '"';
         $m .= '/>';
         return $m;
     }

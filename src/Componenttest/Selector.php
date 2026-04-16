@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -7,11 +6,10 @@ use wwaz\Components\Component;
 class Selector extends Component
 {
     protected $properties = [
-      'attributes' => [
-        'anchor' => '*'
-      ]
+        'attributes' => [
+            'anchor' => '*',
+        ],
     ];
-
 
     /**
      * Returns markup.

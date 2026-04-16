@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -7,15 +6,14 @@ use wwaz\Components\Component;
 class Card extends Component
 {
     protected $properties = [
-      'content' => [
-        'title',
-        'text',
-        'subline',
-        'icon',
-        'callaction'
-      ]
+        'content' => [
+            'title',
+            'text',
+            'subline',
+            'icon',
+            'callaction',
+        ],
     ];
-
 
     /**
      * Returns markup.
@@ -36,7 +34,7 @@ class Card extends Component
         //   $this->setAttribute('id', $selectorAttributes['anchor']);
         // }
 
-        $m[] = '<div'.$this->htmlAttributes().'>';
+        $m[] = '<div' . $this->htmlAttributes() . '>';
 
         $icon = $this->cr('icon');
         if ($icon) {

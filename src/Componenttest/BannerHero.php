@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -9,12 +8,12 @@ class BannerHero extends Component
     protected $wrapTag = 'section';
 
     protected $properties = [
-      'content' => [
-        'headline',
-        'subline',
-        'callaction',
-        'image'
-      ]
+        'content' => [
+            'headline' => 'isString',
+            'subline' => 'isString',
+            'callaction' => 'isComponent',
+            'image' => 'isComponent',
+        ],
     ];
 
     /**
@@ -25,11 +24,11 @@ class BannerHero extends Component
      */
     protected function markup()
     {
-        $m = [];
+        $m   = [];
         $m[] = '<div class="fullsize-image"' . $this->getBackgroundImageStyle() . '>';
-        $m[] = '<h1>' . $this->cr('headline') . '</h1>';
-        $m[] = '<p>' . $this->cr('subline') . '</p>';
-        $m[] = $this->cr('callaction');
+        $m[] = '<h1>' . $this->content('headline') . '</h1>';
+        $m[] = '<p>' . $this->content('subline') . '</p>';
+        $m[] = $this->content('callaction');
         $m[] = '</div>';
         return implode("", $m);
     }
@@ -37,10 +36,10 @@ class BannerHero extends Component
     protected function getBackgroundImageStyle()
     {
         $bgurl = '';
-        if ($image = $this->co('image')) {
+        if ($image = $this->object('image')) {
             $large = $image->getFormat('large');
             if ($large) {
-                $bgurl = ' style="background-image: url(public/assets/images/' . $large['name'] .');"';
+                $bgurl = ' style="background-image: url(public/assets/images/' . $large['name'] . ');"';
             }
         }
         return $bgurl;

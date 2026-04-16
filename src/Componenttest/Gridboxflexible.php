@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -7,14 +6,13 @@ use wwaz\Components\Component;
 class Gridboxflexible extends Component
 {
     protected $properties = [
-      'data' => [
-        'columns' => 'isInt|required|min:1|max:6'
-      ],
-      'content' => [
-        'cards'
-      ]
+        'data'    => [
+            'columns' => 'isInt|required|min:1|max:6',
+        ],
+        'content' => [
+            'cards',
+        ],
     ];
-
 
     /**
      * Returns markup.
@@ -26,7 +24,7 @@ class Gridboxflexible extends Component
     {
         $m = [];
 
-        $m[] = '<div'.$this->htmlAttributes().'>';
+        $m[] = '<div' . $this->htmlAttributes() . '>';
         $m[] = $this->renderColumns();
         $m[] = '</div>'; // container
         return implode("", $m);
@@ -37,12 +35,12 @@ class Gridboxflexible extends Component
     {
         $cards = $this->co('cards');
 
-        if (!is_array($cards)) {
+        if (! is_array($cards)) {
             return '';
         }
 
         $columnsPerRow = $this->getData('columns');
-        $rowsTotal = ceil(count($cards) / $columnsPerRow);
+        $rowsTotal     = ceil(count($cards) / $columnsPerRow);
 
         $colclass = 'col-' . floor(12 / $columnsPerRow);
 
@@ -53,7 +51,7 @@ class Gridboxflexible extends Component
         for ($i = 0; $i < $rowsTotal; $i++) {
             $m[] = '<div class="row">';
             for ($j = 0; $j < $columnsPerRow; $j++) {
-                $m[] = '<div class="'.$colclass.'">';
+                $m[] = '<div class="' . $colclass . '">';
                 if (isset($cards[$cardCounter])) {
                     $m[] = $cards[$cardCounter]->render();
                     $cardCounter++;

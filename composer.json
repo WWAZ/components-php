@@ -2,6 +2,7 @@
   "name": "wwaz/components-php",
   "version": "dev-main",
   "description": "A PHP library for managing and rendering data-driven UI components",
+  "license": "MIT",
   "require": {
     "gajus/dindent": "^2.0",
     "respect/validation": "^2.0.17"

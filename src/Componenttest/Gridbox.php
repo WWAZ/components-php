@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -7,13 +6,12 @@ use wwaz\Components\Component;
 class Gridbox extends Component
 {
     protected $properties = [
-      'content' => [
-        'selector',
-        'left',
-        'right'
-      ]
+        'content' => [
+            'selector',
+            'left',
+            'right',
+        ],
     ];
-
 
     /**
      * Returns markup.
@@ -28,13 +26,13 @@ class Gridbox extends Component
         $this->prependClass('container');
 
         // Set anchor id
-        $selector = $this->co('selector');
+        $selector           = $this->co('selector');
         $selectorAttributes = $selector->getAttributes();
         if (isset($selectorAttributes['anchor'])) {
             $this->setAttribute('id', $selectorAttributes['anchor']);
         }
 
-        $m[] = '<div '.$this->htmlAttributes().'>';
+        $m[] = '<div ' . $this->htmlAttributes() . '>';
         $m[] = '<div class="row">';
         $m[] = '<div class="col-6" data-content="left">' . $this->getContentMarkupByKey('left') . '</div>';
         $m[] = '<div class="col-6" data-content="right">' . $this->getContentMarkupByKey('right') . '</div>';

@@ -1,5 +1,4 @@
 <?php
-
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -7,11 +6,10 @@ use wwaz\Components\Component;
 class Callaction extends Component
 {
     protected $properties = [
-      'content' => [
-        'text'
-      ]
+        'content' => [
+            'text',
+        ],
     ];
-
 
     /**
      * Returns markup.
@@ -22,6 +20,6 @@ class Callaction extends Component
     protected function markup()
     {
         $this->prependClass('callaction');
-        return '<a'.$this->htmlAttributes().'>' . $this->getContentMarkupByKey('text') . '</a>';
+        return '<a' . $this->htmlAttributes() . '>' . $this->getContentMarkupByKey('text') . '</a>';
     }
 }
