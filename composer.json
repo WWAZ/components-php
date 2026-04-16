@@ -1,6 +1,6 @@
 {
   "name": "wwaz/components-php",
-  "version": "dev-main",
+  "type": "project",
   "description": "A PHP library for managing and rendering data-driven UI components",
   "license": "MIT",
   "require": {
