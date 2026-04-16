@@ -1,0 +1,31 @@
+{
+  "name": "wwaz/components-php",
+  "version": "dev-main",
+  "description": "A PHP library for managing and rendering data-driven UI components",
+  "require": {
+    "gajus/dindent": "^2.0",
+    "respect/validation": "^2.0.17"
+  },
+  "autoload": {
+    "psr-4": {
+      "wwaz\\Components\\": "src/",
+      "wwaz\\RespectValidationExtension\\": "src/RespectValidationExtension/",
+      "Gajus\\Dindent\\": "vendor/gajus/dindent/src/"
+    },
+    "files": [
+      "bootstrap/bootstrap.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^13.1",
+    "friendsofphp/php-cs-fixer": "^3"
+  }
+}
