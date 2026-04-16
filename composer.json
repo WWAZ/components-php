@@ -3,6 +3,7 @@
   "type": "project",
   "description": "A PHP library for managing and rendering data-driven UI components",
   "license": "MIT",
+  "version": "1.0.1",
   "require": {
     "gajus/dindent": "^2.0",
     "respect/validation": "^2.0.17"
