@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\RespectValidationExtension;
 
 use Respect\Validation\Factory;
