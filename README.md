@@ -25,8 +25,6 @@ echo $link->render();
 composer require wwaz/components-php
 ```
 
-The library bootstraps itself automatically via Composer's `files` autoload — no service provider or manual setup needed.
-
 ## Usage
 
 ### Register components
