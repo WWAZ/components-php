@@ -2,9 +2,8 @@
 
 namespace wwaz\Components;
 
-use wwaz\Components\Helper\Strings\Json;
 use wwaz\Components\Helper\Arrays\Flatten;
-use wwaz\Components\Factory;
+use wwaz\Components\Helper\Strings\Json;
 
 /**
  * Component Batch.
@@ -139,7 +138,7 @@ class Batch
                 $res[] = [
                   'key' => $key,
                   'addToKey' => $this->getBaseParentBasePath($key),
-                  'value' => $value
+                  'value' => $value,
                 ];
             }
         }

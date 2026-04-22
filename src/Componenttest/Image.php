@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;

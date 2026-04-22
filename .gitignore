@@ -1,6 +1,26 @@
-vendor/
-.phpunit.cache
-.cursor
-README2.md
-MARKTBEWERTUNG.mg
-composer.lock
+# Dependencies
+/vendor/
+
+# Test and QA caches
+/.phpunit.cache/
+/.phpunit.result.cache
+/.phpstan/
+/.php-cs-fixer.cache
+
+# Coverage and build artifacts
+/coverage/
+/build/
+
+# Local editor/tooling files
+/.cursor/
+/.idea/
+/.vscode/
+
+# OS files
+.DS_Store
+
+# Project-local scratch/docs files
+/README2.md
+
+# Library packages are usually tagged, not lockfile-pinned
+/composer.lock

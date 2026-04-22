@@ -11,14 +11,14 @@ class XmlTag extends BaseComponent
     protected $isContainer;
 
     protected $properties = [
-      'attributes' => 'arrayVal',
-      'content' => 'arrayVal'
+        'attributes' => 'arrayVal',
+        'content'    => 'arrayVal',
     ];
 
     public function __construct($data)
     {
         $this->mergeProperties();
-        $this->tag = $data['tag'];
+        $this->tag         = $data['tag'];
         $this->isContainer = $data['isContainer'];
         unset($data['tag']);
         unset($data['isContainer']);
@@ -54,7 +54,6 @@ class XmlTag extends BaseComponent
         return $this;
     }
 
-
     /**
      * Returns attribute.
      *
@@ -69,7 +68,6 @@ class XmlTag extends BaseComponent
         return null;
     }
 
-
     /**
      * Returns all attributes.
      *
@@ -80,7 +78,6 @@ class XmlTag extends BaseComponent
     {
         return isset($this->data['attributes']) ? $this->data['attributes'] : [];
     }
-
 
     /**
      * Returns attributes as html markup.
@@ -100,8 +97,8 @@ class XmlTag extends BaseComponent
         }
 
         foreach ($attributes as $key => $value) {
-            if (!is_null($value)) {
-                if (!is_array($value)) {
+            if (! is_null($value)) {
+                if (! is_array($value)) {
                     $m[] = $key . '="' . $value . '"';
                 } else {
                     // e.g. case class names [cn1, cn2 ...]
@@ -110,7 +107,7 @@ class XmlTag extends BaseComponent
             }
         }
 
-        if (!empty($m)) {
+        if (! empty($m)) {
             return ' ' . implode(' ', $m);
         }
 
@@ -122,7 +119,6 @@ class XmlTag extends BaseComponent
     {
         $this->tag = $name;
     }
-
 
     public function getTag()
     {
@@ -168,7 +164,7 @@ class XmlTag extends BaseComponent
     protected function getContentMarkup($content)
     {
 
-        if (!$content) {
+        if (! $content) {
             return '';
         }
 

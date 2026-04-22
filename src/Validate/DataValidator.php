@@ -2,10 +2,9 @@
 
 namespace wwaz\Components\Validate;
 
-use wwaz\RespectValidationExtension\Validate as Validator;
 use wwaz\Components\Helper\Arrays\Flatten;
 use wwaz\Components\Helper\Strings\StringConverter;
-use wwaz\Components\Exceptions\ComponentValidationException;
+use wwaz\RespectValidationExtension\Validate as Validator;
 
 class DataValidator
 {
@@ -109,7 +108,7 @@ class DataValidator
         return [
           'errors' => $errors,
           'properties' => $properties,
-          'data' => $data
+          'data' => $data,
         ];
 
     }

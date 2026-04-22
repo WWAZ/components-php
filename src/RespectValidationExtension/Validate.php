@@ -1,18 +1,16 @@
 <?php
-
 namespace wwaz\RespectValidationExtension;
 
 use Respect\Validation\Factory;
 
 $FactoryInstance = (new Factory())
-->withRuleNamespace('wwaz\\RespectValidationExtension\\Validation\Rules')
-->withExceptionNamespace('wwaz\RespectValidationExtension\\Validation\\Exceptions');
+    ->withRuleNamespace('wwaz\\RespectValidationExtension\\Validation\Rules')
+    ->withExceptionNamespace('wwaz\RespectValidationExtension\\Validation\\Exceptions');
 
 Factory::setDefaultInstance(
     $FactoryInstance
 );
 
-use Respect\Validation\Validator as v;
 use Respect\Validation\Rules;
 
 class Validate
@@ -24,8 +22,8 @@ class Validate
 
         $ruleClasses = self::getRuleClasses($rules);
 
-        if (!empty($ruleClasses)) {
-            $ruleSet = new Rules\AllOf(... $ruleClasses);
+        if (! empty($ruleClasses)) {
+            $ruleSet = new Rules\AllOf(...$ruleClasses);
             try {
                 $ruleSet->assert($value);
             } catch (\Respect\Validation\Exceptions\NestedValidationException $e) {
@@ -43,7 +41,6 @@ class Validate
 
     protected static function getRuleClasses($rules)
     {
-
         $ruleClasses = [];
 
         for ($i = 0; $i < count($rules); $i++) {
@@ -54,13 +51,13 @@ class Validate
 
             if (class_exists('\\Respect\\Validation\\Rules\\' . $rule)) {
                 // echo'add rule (n)' . $rule . "\n";
-                $cn = '\\Respect\\Validation\\Rules\\' . $rule;
-                $ruleClasses[] = new $cn(... $arguments);
+                $cn            = '\\Respect\\Validation\\Rules\\' . $rule;
+                $ruleClasses[] = new $cn(...$arguments);
 
             } elseif (class_exists('wwaz\\RespectValidationExtension\\Validation\\Rules\\' . $rule)) {
                 // echo'add rule (e)' . $rule . "\n";
-                $cn = 'wwaz\\RespectValidationExtension\\Validation\\Rules\\' . $rule;
-                $ruleClasses[] = new $cn(... $arguments);
+                $cn            = 'wwaz\\RespectValidationExtension\\Validation\\Rules\\' . $rule;
+                $ruleClasses[] = new $cn(...$arguments);
             } else {
                 // echo 'Ø: ' . $rule . "\n";
             }
@@ -72,9 +69,9 @@ class Validate
     {
         $arguments = [];
         if (strpos($rule, ':') !== false) {
-            $e = explode(':', $rule);
+            $e    = explode(':', $rule);
             $rule = $e[0];
-            $v = $e[1];
+            $v    = $e[1];
             if (isset($v)) {
                 if (strpos($v, ',')) {
                     $arguments = explode(',', $v);
@@ -84,9 +81,8 @@ class Validate
             }
         }
         return [
-          $rule,
-          $arguments
+            $rule,
+            $arguments,
         ];
     }
-
 }

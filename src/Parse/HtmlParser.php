@@ -3,7 +3,6 @@
 namespace wwaz\Components\Parse;
 
 use DOMDocument;
-use wwaz\Components\Helper\Arrays\Flatten;
 
 /**
  * Parses HTML documents.
@@ -18,7 +17,6 @@ class HtmlParser
      */
     protected $html;
 
-
     /**
      * Constructor.
      *
@@ -28,7 +26,6 @@ class HtmlParser
     {
         $this->html = $html;
     }
-
 
     /**
      * Returns parsed data.
@@ -41,7 +38,6 @@ class HtmlParser
         return $this->parse();
     }
 
-
     /**
      * Inits parsing.
      *
@@ -50,7 +46,6 @@ class HtmlParser
      */
     protected function parse()
     {
-
         // Suppress DOMDocument error messages
         libxml_use_internal_errors(true);
 
@@ -66,7 +61,6 @@ class HtmlParser
         }
     }
 
-
     /**
      * Returns DOMDocument's body.
      *
@@ -81,7 +75,6 @@ class HtmlParser
         }
     }
 
-
     /**
      * Parses html recursively.
      *
@@ -90,7 +83,6 @@ class HtmlParser
      */
     protected function parseDocument($doc)
     {
-
         $array = [];
 
         if ($doc->hasAttributes()) {
@@ -129,5 +121,4 @@ class HtmlParser
         }
         return $array;
     }
-
 }

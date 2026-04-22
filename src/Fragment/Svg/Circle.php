@@ -7,11 +7,11 @@ class Circle extends SvgTag
     protected $isContainer = false;
 
     protected $properties = [
-      'attributes' => [
-        'cx' => 'required|isInt',
-        'cy' => 'required|isInt',
-        'r' => 'required|isInt'
-      ]
+        'attributes' => [
+            'cx' => 'required|isInt',
+            'cy' => 'required|isInt',
+            'r'  => 'required|isInt',
+        ],
     ];
 
 }

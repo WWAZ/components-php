@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -30,7 +31,7 @@ class BannerHero extends Component
         $m[] = '<p>' . $this->content('subline') . '</p>';
         $m[] = $this->content('callaction');
         $m[] = '</div>';
-        return implode("", $m);
+        return implode('', $m);
     }
 
     protected function getBackgroundImageStyle()

@@ -10,10 +10,10 @@ require '../functions.php';
 use wwaz\Components\Factory;
 
 $tag = Factory::make('fragment.html.div', [
-  'href' => 'myurl.html',
-  'target' => '_blank',
-  'title' => 'hello!',
-  'content' => 'Click me!'
+    'href'    => 'myurl.html',
+    'target'  => '_blank',
+    'title'   => 'hello!',
+    'content' => 'Click me!',
 ]);
 
 $markup = $tag->render();

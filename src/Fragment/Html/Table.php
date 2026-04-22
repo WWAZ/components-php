@@ -7,7 +7,7 @@ class Table extends HtmlTag
     protected $isContainer = true;
 
     protected $properties = [
-      'hasTitleRow' => 'boolVal|default:false'
+      'hasTitleRow' => 'boolVal|default:false',
     ];
 
     protected function markup()
@@ -30,7 +30,7 @@ class Table extends HtmlTag
                         $m[] = $c->toHtml();
                     } else {
                         $t = new Td([
-                          'contains' => $c
+                          'contains' => $c,
                         ]);
                         $m[] = $t->toHtml();
                     }
@@ -46,7 +46,7 @@ class Table extends HtmlTag
                     $m[] = $contents->toHtml();
                 } else {
                     $t = new Td([
-                      'contains' => $contents
+                      'contains' => $contents,
                     ]);
                     $m[] = $t->toHtml();
                 }

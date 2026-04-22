@@ -12,8 +12,8 @@ use wwaz\Components\Factory;
 
 // Construct by real classname
 $component = Factory::make('wwaz.Components.Componenttest.Callaction', [
-  'class' => 'callaction-inverse',
-  'text' => 'Click me!'
+    'class' => 'callaction-inverse',
+    'text'  => 'Click me!',
 ]);
 
 $markup = $component->render();

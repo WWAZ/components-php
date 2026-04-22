@@ -155,6 +155,19 @@ Config::get('MyApp\\Components', 'url.images');
 // → 'public/assets/images'
 ```
 
+## Development
+
+For contributor onboarding, local quality checks, and PR expectations, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Common local commands:
+
+```bash
+composer lint
+composer stan
+composer test
+composer qa
+```
+
 ## Testing
 
 ```bash

@@ -7,23 +7,23 @@ error_reporting(E_ALL);
 require '../../vendor/autoload.php';
 require '../functions.php';
 
-use wwaz\Components\Factory;
 use Gajus\Dindent\Indenter;
+use wwaz\Components\Factory;
 
 $component = Factory::make('componenttest.gridbox', [
-  'id' => 'gridbox',
-  'class' => 'my-gridbox-component',
-  'selector' => Factory::make('componenttest.selector', [
-    'id' => 1,
-    'class' => '',
-    'anchor' => 'cerv-programm'
-  ]),
-  'left' => Factory::make('fragment.html.span', [
-    'content' => 'Hello left!'
-  ]),
-  'right' => Factory::make('componenttest.callaction', [
-    'text' => 'Hello right!'
-  ])
+    'id'       => 'gridbox',
+    'class'    => 'my-gridbox-component',
+    'selector' => Factory::make('componenttest.selector', [
+        'id'     => 1,
+        'class'  => '',
+        'anchor' => 'cerv-programm',
+    ]),
+    'left'     => Factory::make('fragment.html.span', [
+        'content' => 'Hello left!',
+    ]),
+    'right'    => Factory::make('componenttest.callaction', [
+        'text' => 'Hello right!',
+    ]),
 ]);
 
 $markup = $component->render();

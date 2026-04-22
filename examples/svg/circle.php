@@ -11,9 +11,9 @@ use wwaz\Components\Factory;
 
 // Works aswell: Attributes as root key
 $tag = Factory::make('fragment.svg.circle', [
-  'cx' => 10,
-  'cy' => 10,
-  'r' => 50
+    'cx' => 10,
+    'cy' => 10,
+    'r'  => 50,
 ]);
 
 echo showHTMLCode($tag->render());

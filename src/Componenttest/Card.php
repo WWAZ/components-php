@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -57,6 +58,6 @@ class Card extends Component
 
         $m[] = '</div>';
 
-        return implode("", $m);
+        return implode('', $m);
     }
 }

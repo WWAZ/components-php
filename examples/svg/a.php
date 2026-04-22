@@ -10,12 +10,12 @@ require '../functions.php';
 use wwaz\Components\Factory;
 
 $tag = Factory::make('fragment.svg.a', [
-  'href' => 'url.html',
-  'content' => Factory::make('fragment.svg.circle', [
-    'cx' => 10,
-    'cy' => 10,
-    'r' => 50
-  ])
+    'href'    => 'url.html',
+    'content' => Factory::make('fragment.svg.circle', [
+        'cx' => 10,
+        'cy' => 10,
+        'r'  => 50,
+    ]),
 ]);
 
 echo showHTMLCode($tag->render());

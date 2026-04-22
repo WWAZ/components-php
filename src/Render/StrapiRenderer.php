@@ -36,19 +36,7 @@ class StrapiRenderer
      */
     public function render()
     {
-
         $data = $this->build($this->data);
-
-        // if( defined('LOOK_AT') ){
-        //   if( LOOK_AT ){
-        //     if( isset($data[LOOK_AT]) ){
-        //       print_r($data[LOOK_AT]);
-        //       return $data[LOOK_AT]->render();
-        //     } else {
-        //       die('index ' . LOOK_AT . ' is undefined.');
-        //     }
-        //   }
-        // }
 
         $m = '';
         for ($i = 0; $i < count($data); $i++) {
@@ -126,5 +114,4 @@ class StrapiRenderer
         }
         return Flatten::deflatten($data);
     }
-
 }

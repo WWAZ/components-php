@@ -3,10 +3,9 @@
 namespace wwaz\Components;
 
 use Gajus\Dindent\Indenter;
-use wwaz\Components\Validate\DataValidator;
 use wwaz\Components\Helper\Arrays\Flatten;
 use wwaz\Components\Helper\Arrays\Merge;
-use wwaz\Components\Parse\HtmlParser;
+use wwaz\Components\Validate\DataValidator;
 
 abstract class BaseComponent
 {
@@ -16,12 +15,12 @@ abstract class BaseComponent
      * @var array
      */
     protected $properties = [
-      'attributes' => []
+        'attributes' => [],
     ];
 
     protected $reservedPropertyKeys = [
-      'attributes',
-      'content'
+        'attributes',
+        'content',
     ];
 
     /**
@@ -30,7 +29,7 @@ abstract class BaseComponent
      * @var array
      */
     protected $data = [
-      'content' => null
+        'content' => null,
     ];
 
     /**
@@ -44,7 +43,7 @@ abstract class BaseComponent
         $this->mergeProperties();
         if (is_string($data) || $this->isComponentObject($data)) {
             $data = [
-              'content' => [$data]
+                'content' => [$data],
             ];
         }
         $this->data = $this->validateData($data);
@@ -60,7 +59,6 @@ abstract class BaseComponent
      */
     protected function mergeProperties()
     {
-
         $props = [$this->properties];
 
         $class = get_called_class();
@@ -85,13 +83,12 @@ abstract class BaseComponent
      */
     public function setAttribute($name, $value)
     {
-        if (!isset($this->data['attributes'])) {
+        if (! isset($this->data['attributes'])) {
             $this->data['attributes'] = [];
         }
         $this->data['attributes'][$name] = $value;
         return $this;
     }
-
 
     /**
      * Returns attribute.
@@ -101,12 +98,11 @@ abstract class BaseComponent
      */
     public function getAttribute($name)
     {
-        if (!isset($this->data['attributes'])) {
+        if (! isset($this->data['attributes'])) {
             return null;
         }
         return isset($this->data['attributes'][$name]) ? $this->data['attributes'][$name] : null;
     }
-
 
     /**
      * Returns all attributes.
@@ -117,13 +113,12 @@ abstract class BaseComponent
     public function getAttributes()
     {
         if (isset($this->data['attributes'])) {
-            if (is_array($this->data['attributes']) && !empty($this->data['attributes'])) {
+            if (is_array($this->data['attributes']) && ! empty($this->data['attributes'])) {
                 return $this->data['attributes'];
             }
         }
         return null;
     }
-
 
     /**
      * Returns attributes as html markup.
@@ -133,7 +128,6 @@ abstract class BaseComponent
      */
     protected function htmlAttributes()
     {
-
         $m = [];
 
         if ($attributes = $this->getAttributes()) {
@@ -141,8 +135,8 @@ abstract class BaseComponent
 
                 // if( $k === 'id' || $k === 'class' || strpos('data-', $k) !== false ){
 
-                if (!is_array($v)) {
-                    if (!is_null($v)) {
+                if (! is_array($v)) {
+                    if (! is_null($v)) {
                         $m[] = $k . '="' . trim($v) . '"';
                     }
                 } else {
@@ -152,7 +146,7 @@ abstract class BaseComponent
 
                 // }
             }
-            if (!empty($m)) {
+            if (! empty($m)) {
                 return ' ' . implode(' ', $m);
             }
         }
@@ -169,7 +163,7 @@ abstract class BaseComponent
     public function prependClass($name)
     {
         $class = $this->getAttribute('class');
-        if (!$this->hasClass($name)) {
+        if (! $this->hasClass($name)) {
             if (is_array($class)) {
                 array_unshift($class, $name);
             } else {
@@ -189,11 +183,11 @@ abstract class BaseComponent
     public function addClass($name)
     {
         $class = $this->getAttribute('class');
-        if (!$class) {
+        if (! $class) {
             $class = [];
             $this->setAttribute('class', $class);
         }
-        if (!$this->hasClass($name)) {
+        if (! $this->hasClass($name)) {
             if (is_array($class)) {
                 $class[] = $name;
             } else {
@@ -260,7 +254,7 @@ abstract class BaseComponent
         if ($addWhitespace) {
             $m .= ' ';
         }
-        $m .= 'class="'.implode(' ', $this->classList()).'"';
+        $m .= 'class="' . implode(' ', $this->classList()) . '"';
         return $m;
     }
 
@@ -274,7 +268,7 @@ abstract class BaseComponent
     public function getProperties()
     {
         $properties = $this->properties;
-        $parents = class_parents($this);
+        $parents    = class_parents($this);
         foreach ($parents as $classname) {
             $classVars = get_class_vars($classname);
             if (isset($classVars['properties'])) {
@@ -283,7 +277,6 @@ abstract class BaseComponent
         }
         return $properties;
     }
-
 
     /**
      * Validates inpout data.
@@ -299,8 +292,8 @@ abstract class BaseComponent
         $data = $this->propertyDataStructureCorrection($data);
 
         $Validator = new DataValidator($this->getProperties(), $data);
-        $result = $Validator->validate();
-        if (!empty($result['errors'])) {
+        $result    = $Validator->validate();
+        if (! empty($result['errors'])) {
             $this->errorWarning($result['errors']);
             return false;
         }
@@ -315,7 +308,6 @@ abstract class BaseComponent
      */
     protected function transformProperties()
     {
-
         $properties = $this->properties;
 
         $transform = ['content', 'data'];
@@ -357,7 +349,7 @@ abstract class BaseComponent
 
                         if (isset($properties[$property][$i])) {
                             // Destructured value without rule
-                            $value = $properties[$property][$i];
+                            $value                         = $properties[$property][$i];
                             $properties[$property][$value] = '*';
                             unset($properties[$property][$i]);
                         }
@@ -367,7 +359,6 @@ abstract class BaseComponent
                 $this->properties = $properties;
             }
         }
-
     }
 
     /**
@@ -400,10 +391,9 @@ abstract class BaseComponent
      */
     protected function propertyDataStructureCorrection($data)
     {
-
         // Which property keys contain an array?
         $arrayProperties = [];
-        $props = $this->getProperties();
+        $props           = $this->getProperties();
         if (is_array($props)) {
             foreach ($props as $key => $prop) {
                 if (is_array($prop)) {
@@ -420,7 +410,7 @@ abstract class BaseComponent
 
                 // Set $AP (e.g. = 'attributes') property
                 // in data when not existing.
-                if (!isset($data[$AP])) {
+                if (! isset($data[$AP])) {
                     $data[$AP] = [];
                 }
 
@@ -428,16 +418,13 @@ abstract class BaseComponent
 
                 foreach ($props[$AP] as $key => $val) {
                     if (isset($data[$key])) {
-                        if (!isset($data[$AP][$key])) {
+                        if (! isset($data[$AP][$key])) {
                             $data[$AP][$key] = $data[$key];
                             unset($data[$key]);
                             $added[] = $key;
                         }
                     }
                 }
-
-
-
             }
         }
 
@@ -462,13 +449,12 @@ abstract class BaseComponent
         //   }
         // }
 
-
         return $data;
     }
 
     protected function errorWarning($errors)
     {
-        $m = [];
+        $m   = [];
         $m[] = '<h2>Warning</h2>';
         foreach ($errors as $index => $error) {
             $efk = array_key_first($error);
@@ -476,7 +462,6 @@ abstract class BaseComponent
         }
         die(implode("<br>\n", $m) . "<br>\n<br>\n");
     }
-
 
     /**
      * Returns instance type.
@@ -489,19 +474,7 @@ abstract class BaseComponent
         $classname = get_class($this);
         $classname = explode('\\', $classname);
         return trim(implode('.', $classname));
-        // $record = 0;
-        // $res = [];
-        // foreach($classname as $cn){
-        //   if( $record === 1 ){
-        //     $res[] = $cn;
-        //   }
-        //   if( $cn === 'Model' || $cn === 'Components' ){
-        //     $record = 1;
-        //   }
-        // }
-        // return implode('.', $res);
     }
-
 
     /**
      * Returns true when given variable
@@ -520,7 +493,6 @@ abstract class BaseComponent
         return false;
     }
 
-
     /**
      * Returns content elements.
      *
@@ -531,7 +503,6 @@ abstract class BaseComponent
     {
         return $this->data['content'];
     }
-
 
     /**
      * Returns content element's markup
@@ -550,7 +521,6 @@ abstract class BaseComponent
         }
     }
 
-
     /**
      * Returns content element
      * of given key (index).
@@ -560,15 +530,14 @@ abstract class BaseComponent
      */
     protected function getContentByKey($key)
     {
-        if (!isset($this->data['content'])) {
+        if (! isset($this->data['content'])) {
             return null;
         }
-        if (!isset($this->data['content'][$key])) {
+        if (! isset($this->data['content'][$key])) {
             return null;
         }
         return $this->data['content'][$key];
     }
-
 
     /**
      * Returns markup of all (and nested)
@@ -580,21 +549,18 @@ abstract class BaseComponent
      */
     protected function getContentMarkup($content)
     {
-
-        if (!$content) {
+        if (! $content) {
             return '';
         }
 
         $m = '';
 
         if (is_array($content)) {
-
             for ($i = 0; $i < count($content); $i++) {
                 $m .= $this->getContentMarkup($content[$i]);
             }
 
         } else {
-
             if ($this->isComponentObject($content)) {
                 // Another component
                 $m .= $content->render();
@@ -605,7 +571,6 @@ abstract class BaseComponent
         return $m;
     }
 
-
     /**
      * Returns component's markup.
      *
@@ -614,7 +579,6 @@ abstract class BaseComponent
      * @abstract
      */
     abstract protected function markup();
-
 
     /**
      * Returns html markup.
@@ -628,7 +592,6 @@ abstract class BaseComponent
         return $indenter->indent($this->markup());
     }
 
-
     /**
      * Returns component's data.
      *
@@ -637,15 +600,7 @@ abstract class BaseComponent
      */
     public function toData()
     {
-
-        // echo 'TYPE????' . $this->getType() . "\n";
-        // if( isset($this->data['type']) ){
-        //   echo 'TYPE: ' . $this->data['type'] . "\n";
-        // } else {
-        //   echo 'NO TYPE!' . "\n";
-        // }
-
-        $data = Flatten::flatten($this->data);
+        $data   = Flatten::flatten($this->data);
         $result = ['type' => $this->getType()];
 
         foreach ($data as $key => $value) {
@@ -665,17 +620,6 @@ abstract class BaseComponent
 
         return Flatten::deflatten($result);
     }
-    // public function toData(){
-    //   $parser = new HtmlParser($this->markup());
-    //   $parsed = $parser->toData();
-    //   // $data = [
-    //   //   'composite' => $this->getType()
-    //   // ];
-    //   foreach($parsed as $key => $value){
-    //     $data[$key] = $value;
-    //   }
-    //   return $data;
-    // }
 
     /**
      * Adds content element.
@@ -694,6 +638,4 @@ abstract class BaseComponent
         }
         return $this;
     }
-
-
 }

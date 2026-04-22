@@ -10,7 +10,7 @@ class FragmentFactory
      * @var array
      */
     protected static $namespaces = [
-      __NAMESPACE__ . '\\Fragment'
+      __NAMESPACE__ . '\\Fragment',
     ];
 
     /**

@@ -7,9 +7,9 @@ class Path extends SvgTag
     protected $isContainer = false;
 
     protected $properties = [
-      'attributes' => [
-        'd' => 'required|isString'
-      ]
+        'attributes' => [
+            'd' => 'required|isString',
+        ],
     ];
 
 }

@@ -1,7 +1,6 @@
 <?php
-namespace wwaz\Components\Componenttest;
 
-use wwaz\Components\Componenttest\Image;
+namespace wwaz\Components\Componenttest;
 
 class Icon extends Image
 {

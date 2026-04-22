@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -38,6 +39,6 @@ class Gridbox extends Component
         $m[] = '<div class="col-6" data-content="right">' . $this->getContentMarkupByKey('right') . '</div>';
         $m[] = '</div>'; // row
         $m[] = '</div>'; // container
-        return implode("", $m);
+        return implode('', $m);
     }
 }

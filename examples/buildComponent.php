@@ -8,8 +8,6 @@ require '../vendor/autoload.php';
 require 'functions.php';
 
 use Gajus\Dindent\Indenter;
-use wwaz\Components\Factory;
-use wwaz\Components\Config;
 use wwaz\Components\Component;
 
 class Card extends Component
@@ -32,7 +30,7 @@ class Card extends Component
 
 $component = new Card([
     'title' => 'My Card',
-    'text' => 'My text'    
+    'text'  => 'My text',
 ]);
 
 $markup = $component->render();

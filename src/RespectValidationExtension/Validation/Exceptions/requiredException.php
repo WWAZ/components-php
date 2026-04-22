@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\RespectValidationExtension\Validation\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;

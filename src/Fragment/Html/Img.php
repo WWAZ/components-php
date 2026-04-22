@@ -11,8 +11,8 @@ class Img extends HtmlTag
         'src' => 'required|isString',
         'alt' => 'recommended|isString|length:1,255',
         'width' => 'recommended',
-        'height' => 'recommended'
-      ]
+        'height' => 'recommended',
+      ],
     ];
 
 }

@@ -11,12 +11,12 @@ use Gajus\Dindent\Indenter;
 use wwaz\Components\Factory;
 
 $component = Factory::make('fragment.html.a', [
-  'id' => 'my-link',
-  'class' => 'my-link',
-  'href' => 'my-url.html',
-  'target' => '_blank',
-  'title' => 'my great link',
-  'content' => 'Click me!'
+    'id'      => 'my-link',
+    'class'   => 'my-link',
+    'href'    => 'my-url.html',
+    'target'  => '_blank',
+    'title'   => 'my great link',
+    'content' => 'Click me!',
 ]);
 
 $markup = $component->render();

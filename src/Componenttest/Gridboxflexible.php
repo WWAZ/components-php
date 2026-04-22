@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\Components\Componenttest;
 
 use wwaz\Components\Component;
@@ -27,7 +28,7 @@ class Gridboxflexible extends Component
         $m[] = '<div' . $this->htmlAttributes() . '>';
         $m[] = $this->renderColumns();
         $m[] = '</div>'; // container
-        return implode("", $m);
+        return implode('', $m);
 
     }
 

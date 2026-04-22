@@ -2,12 +2,7 @@
 
 namespace wwaz\Components;
 
-use Gajus\Dindent\Indenter;
-use wwaz\Components\Validate\DataValidator;
-use wwaz\Components\Helper\Arrays\Flatten;
-use wwaz\Components\Helper\Arrays\Merge;
 use wwaz\Components\Parse\HtmlParser;
-use wwaz\Components\Config;
 
 abstract class Component extends BaseComponent
 {
@@ -157,7 +152,7 @@ abstract class Component extends BaseComponent
             $m[] = '</' . $dockingTag . '>';
         }
 
-        return implode("", $m);
+        return implode('', $m);
     }
 
     /**
@@ -219,7 +214,7 @@ abstract class Component extends BaseComponent
         $parsed = $parser->toData();
         $data = [
           '__component' => $this->getType(),
-          'content' => []
+          'content' => [],
         ];
         foreach ($parsed as $key => $value) {
             $data['content'][$key] = $value;

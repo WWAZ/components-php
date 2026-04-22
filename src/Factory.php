@@ -26,7 +26,7 @@ class Factory
      * @var array
      */
     protected static $namespaces = [
-      __NAMESPACE__
+      __NAMESPACE__,
     ];
 
     /**

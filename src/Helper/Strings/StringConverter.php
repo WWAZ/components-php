@@ -4,6 +4,7 @@ namespace wwaz\Components\Helper\Strings;
 
 class StringConverter
 {
+    
     /**
     * Converts a form input request field's type to its proper type after values are received stringified.
     *
@@ -28,7 +29,6 @@ class StringConverter
     * @param  string $string
     * @return mixed
     */
-
     public static function convert($string)
     {
 

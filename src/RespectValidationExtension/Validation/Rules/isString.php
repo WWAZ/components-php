@@ -1,4 +1,5 @@
 <?php
+
 namespace wwaz\RespectValidationExtension\Validation\Rules;
 
 use Respect\Validation\Rules\AbstractRule;
