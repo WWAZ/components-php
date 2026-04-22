@@ -1,12 +1,12 @@
 # Components
 
-A PHP library for managing and rendering data-driven UI components.
+A PHP library for building data-driven UI components.
 
-This package lets you create composable, nestable components that turn plain data into well-formed HTML, XML, or SVG markup declaratively, with built-in validation and no template engine required.
+Define composable, nestable components that render plain data into clean HTML, XML, or SVG — declaratively, with built-in validation and no template engine needed.
 
-For example, it can render structured content from headless CMSs, APIs, or other nested data sources, and help build server-rendered UI fragments, email markup, or document-like content.
+Works great for rendering structured content from headless CMSs or APIs, generating server-side UI fragments, producing email markup, or assembling document-like output.
 
-Once installed you can do things like this:
+After installation:
 
 ```php
 $link = Factory::make('fragment.html.a', [
