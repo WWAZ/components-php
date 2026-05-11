@@ -15,7 +15,6 @@ class RecursiveComponentBuilder
      */
     public static function build($data, $result = [])
     {
-
         if (empty($data)) {
             return [];
         }
@@ -53,6 +52,7 @@ class RecursiveComponentBuilder
 
             }
         }
+
         return $result;
     }
 

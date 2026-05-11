@@ -10,9 +10,8 @@ class Table extends HtmlTag
       'hasTitleRow' => 'boolVal|default:false',
     ];
 
-    public function markup(): string|bool
+    public function markup(): string
     {
-
         $m[] = '<table' . $this->htmlAttributes() . '>';
 
         foreach ($this->getContent() as $index => $contents) {
@@ -71,6 +70,7 @@ class Table extends HtmlTag
         if (is_object($contains) && get_class($contains) === __NAMESPACE__ . '\\Tr') {
             return true;
         }
+
         return false;
     }
 
@@ -86,6 +86,7 @@ class Table extends HtmlTag
         if (is_object($contains) && get_class($contains) === __NAMESPACE__ . '\\Td') {
             return true;
         }
+
         return false;
     }
 
@@ -100,6 +101,7 @@ class Table extends HtmlTag
         if (is_object($contains) && get_class($contains) === __NAMESPACE__ . '\\Th') {
             return true;
         }
+
         return false;
     }
 

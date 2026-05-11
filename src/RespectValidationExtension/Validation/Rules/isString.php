@@ -11,6 +11,7 @@ final class isString extends AbstractRule
         if (is_string($input)) {
             return true;
         }
+
         return false;
     }
 }

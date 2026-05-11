@@ -55,7 +55,7 @@ class Card extends Component
             'text'  => 'required|isString',
         ],
     ];
-    public function markup(): string|bool
+    public function markup(): string
     {
         return '
             <h2 class="card__title">' . $this->content('title') . '</h2>

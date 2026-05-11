@@ -33,6 +33,7 @@ class XmlTag extends BaseComponent
     public function addContent($content)
     {
         $this->data['content'][] = $content;
+
         return $this;
     }
 
@@ -51,6 +52,7 @@ class XmlTag extends BaseComponent
     public function setAttribute($name, $value)
     {
         $this->data['attributes'][$name] = $value;
+
         return $this;
     }
 
@@ -65,6 +67,7 @@ class XmlTag extends BaseComponent
         if (isset($this->data['attributes'][$name])) {
             return $this->data['attributes'][$name];
         }
+
         return null;
     }
 
@@ -87,7 +90,6 @@ class XmlTag extends BaseComponent
      */
     protected function markupAttributes()
     {
-
         $m = [];
 
         $attributes = $this->getAttributes();
@@ -112,7 +114,6 @@ class XmlTag extends BaseComponent
         }
 
         return '';
-
     }
 
     public function setTag($name)
@@ -125,9 +126,8 @@ class XmlTag extends BaseComponent
         return strtolower($this->tag);
     }
 
-    public function markup(): string|bool
+    public function markup(): string
     {
-
         $m = '<' . $this->getTag();
 
         $m .= $this->markupAttributes();
@@ -145,6 +145,7 @@ class XmlTag extends BaseComponent
         } else {
             $m .= ' />';
         }
+
         return $m;
     }
 
@@ -163,7 +164,6 @@ class XmlTag extends BaseComponent
      */
     protected function getContentMarkup($content)
     {
-
         if (! $content) {
             return '';
         }
@@ -185,6 +185,7 @@ class XmlTag extends BaseComponent
                 $m .= $content;
             }
         }
+
         return $m;
     }
 
@@ -202,6 +203,7 @@ class XmlTag extends BaseComponent
         if (is_object($var)) { // && is_subclass_of($var, __NAMESPACE__ . '\Tag')
             return true;
         }
+
         return false;
     }
 }

@@ -30,7 +30,6 @@ class StringConverter
     */
     public static function convert($string)
     {
-
         if (gettype($string) === 'array') {
             return (array)$string;
         }

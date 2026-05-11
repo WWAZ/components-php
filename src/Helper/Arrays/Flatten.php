@@ -25,6 +25,7 @@ class Flatten
                 $result[$new_key] = $value;
             }
         }
+
         return $result;
     }
 
@@ -59,6 +60,7 @@ class Flatten
         }
         $temp = $value;
         unset($temp);
+
         return $data;
     }
 
@@ -77,6 +79,7 @@ class Flatten
             }
             $nested[array_shift($parts)] = $value;
         }
+
         return $output;
     }
 }

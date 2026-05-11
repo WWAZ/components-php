@@ -55,8 +55,6 @@ class DataValidator
      */
     protected function validateRecursive($properties, $data)
     {
-
-
         if (isset($data['content'])) {
             // Content is a collection object.
             // So, all values must be wrapped
@@ -133,6 +131,7 @@ class DataValidator
         if (!empty($errors)) {
             return $errors;
         }
+
         return true;
     }
 
@@ -153,6 +152,7 @@ class DataValidator
                 }
             }
         }
+
         return $errors;
     }
 
@@ -176,6 +176,7 @@ class DataValidator
                 }
             }
         }
+
         return $data;
     }
 
@@ -199,10 +200,7 @@ class DataValidator
                 return $value;
             }
         }
+
         return false;
     }
-
-
-
-
 }

@@ -127,6 +127,7 @@ class Batch
                 unset($arr[ $item['key'] ]);
             }
         }
+
         return $arr;
     }
 
@@ -142,6 +143,7 @@ class Batch
                 ];
             }
         }
+
         return $res;
     }
 
@@ -167,6 +169,7 @@ class Batch
                 }
             }
         }
+
         return $arr;
     }
 
@@ -178,6 +181,7 @@ class Batch
                 $res[$key] = $value;
             }
         }
+
         return $res;
     }
 
@@ -228,6 +232,7 @@ class Batch
                 }
             }
         }
+
         return $res;
     }
 
@@ -249,6 +254,7 @@ class Batch
                 $path[] = $e[$i];
             }
         }
+
         return implode('.', $path);
 
     }
@@ -262,6 +268,7 @@ class Batch
                 $path[] = $e[$i];
             }
         }
+
         return implode('.', $path);
     }
 
@@ -273,6 +280,7 @@ class Batch
             // we're only interests in 'type' or 'content' – not contains.0 ...
             $last = array_pop($e);
         }
+
         return $last;
     }
 
@@ -285,6 +293,7 @@ class Batch
                 $level++;
             }
         }
+
         return $level;
     }
 
@@ -297,6 +306,7 @@ class Batch
                 $maxDepth = $depth;
             }
         }
+
         return $maxDepth;
     }
 
@@ -305,6 +315,7 @@ class Batch
         if (Json::isJson($data)) {
             $data = Json::toArray($data);
         }
+
         return $data;
     }
 }

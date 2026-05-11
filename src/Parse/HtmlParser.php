@@ -119,6 +119,7 @@ class HtmlParser
                 }
             }
         }
+
         return $array;
     }
 }

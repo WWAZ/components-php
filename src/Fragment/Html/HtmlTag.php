@@ -34,9 +34,8 @@ abstract class HtmlTag extends XmlTag
         return strtolower($classname[count($classname) - 1]);
     }
 
-    public function markup(): string|bool
+    public function markup(): string
     {
-
         $m = '<' . $this->getTag();
 
         if ($attributes = $this->htmlAttributes()) {
@@ -56,6 +55,7 @@ abstract class HtmlTag extends XmlTag
         } else {
             $m .= ' />';
         }
+
         return $m;
     }
 

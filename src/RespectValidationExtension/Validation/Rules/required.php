@@ -11,6 +11,7 @@ final class required extends AbstractRule
         if (isset($input)) {
             return true;
         }
+
         return false;
     }
 }

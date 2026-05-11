@@ -29,6 +29,7 @@ final class select extends AbstractRule
         if (in_array($input, $this->options)) {
             return true;
         }
+
         return false;
     }
 }

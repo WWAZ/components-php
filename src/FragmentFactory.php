@@ -22,6 +22,7 @@ class FragmentFactory
     public static function addNamespace($namespace)
     {
         self::$namespaces[] = $namespace;
+
         return self;
     }
 
@@ -37,6 +38,7 @@ class FragmentFactory
         if ($class = self::getModelClass($type, $data)) {
             return $class;
         }
+
         return false;
     }
 

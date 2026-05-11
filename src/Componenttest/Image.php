@@ -29,7 +29,7 @@ class Image extends Component
      * @param none
      * @return string
      */
-    public function markup(): string|bool
+    public function markup(): string
     {
         $m  = '<img';
         $m .= ' src="' . $this->getSrc() . '"';
@@ -37,6 +37,7 @@ class Image extends Component
         $m .= ' height="' . $this->getAttribute('height') . '"';
         $m .= ' alt="' . $this->getAttribute('alternativeText') . '"';
         $m .= '/>';
+
         return $m;
     }
 
@@ -51,6 +52,7 @@ class Image extends Component
         if (isset($formats[$name])) {
             return $formats[$name];
         }
+
         return null;
     }
 
@@ -61,6 +63,7 @@ class Image extends Component
         if ($url) {
             $src = $url . '/' . $src;
         }
+
         return $src;
     }
 }

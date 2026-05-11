@@ -294,7 +294,6 @@ abstract class BaseComponent
      */
     protected function validateData($data)
     {
-
         $this->transformProperties();
 
         $data = $this->propertyDataStructureCorrection($data);

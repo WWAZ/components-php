@@ -104,6 +104,7 @@ class Factory
                 return $classname;
             }
         }
+
         return false;
     }
 
@@ -118,6 +119,7 @@ class Factory
         if (in_array($classname, get_declared_classes())) {
             return true;
         }
+
         return false;
     }
 
@@ -142,6 +144,7 @@ class Factory
                 return $e;
             }
         }
+
         // 2. Search model in all known variants
         // and registered namespaces.
         return self::searchVariants($type);
@@ -246,6 +249,7 @@ class Factory
         if (strpos($str, '_') !== false) {
             return true;
         }
+
         return false;
     }
 
@@ -261,6 +265,7 @@ class Factory
         for ($i = 0; $i < count($str); $i++) {
             $str[$i] = ucfirst($str[$i]);
         }
+
         return ucfirst(implode('', $str));
     }
 
@@ -340,6 +345,7 @@ class Factory
         if (isset(self::$cache[$key])) {
             return self::$cache[$key];
         }
+
         return null;
     }
 
@@ -368,6 +374,7 @@ class Factory
         if (isset(self::$componentCache[$key])) {
             return self::$componentCache[$key];
         }
+
         return null;
     }
 }

@@ -23,7 +23,7 @@ class BannerHero extends Component
      * @param none
      * @return string
      */
-    public function markup(): string|bool
+    public function markup(): string
     {
         $m   = [];
         $m[] = '<div class="fullsize-image"' . $this->getBackgroundImageStyle() . '>';
@@ -31,6 +31,7 @@ class BannerHero extends Component
         $m[] = '<p>' . $this->content('subline') . '</p>';
         $m[] = $this->content('callaction');
         $m[] = '</div>';
+
         return implode('', $m);
     }
 
@@ -43,6 +44,7 @@ class BannerHero extends Component
                 $bgurl = ' style="background-image: url(public/assets/images/' . $large['name'] . ');"';
             }
         }
+
         return $bgurl;
     }
 }

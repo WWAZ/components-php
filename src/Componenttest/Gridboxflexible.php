@@ -21,7 +21,7 @@ class Gridboxflexible extends Component
      * @param none
      * @return string
      */
-    public function markup(): string|bool
+    public function markup(): string
     {
         $m = [];
 

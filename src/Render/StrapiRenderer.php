@@ -58,7 +58,6 @@ class StrapiRenderer
      */
     protected function build($data)
     {
-
         $result = [];
 
         for ($i = 0; $i < count($data); $i++) {
@@ -92,6 +91,7 @@ class StrapiRenderer
             }
             return $data;
         }
+
         return $this->removeKeyRecursive($data, $keyname);
     }
 
@@ -112,6 +112,7 @@ class StrapiRenderer
                 unset($data[implode('.', $path)]);
             }
         }
+
         return Flatten::deflatten($data);
     }
 }

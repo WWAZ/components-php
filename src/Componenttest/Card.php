@@ -22,18 +22,9 @@ class Card extends Component
      * @param none
      * @return string
      */
-    public function markup(): string|bool
+    public function markup(): string
     {
         $m = [];
-
-        // $this->prependClass('container');
-        //
-        // // Set anchor id
-        // $selector = $this->co('selector');
-        // $selectorAttributes = $selector->getAttributes();
-        // if( isset($selectorAttributes['anchor']) ){
-        //   $this->setAttribute('id', $selectorAttributes['anchor']);
-        // }
 
         $m[] = '<div' . $this->htmlAttributes() . '>';
 

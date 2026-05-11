@@ -20,7 +20,7 @@ class Gridbox extends Component
      * @param none
      * @return string
      */
-    public function markup(): string|bool
+    public function markup(): string
     {
         $m = [];
 
@@ -39,6 +39,7 @@ class Gridbox extends Component
         $m[] = '<div class="col-6" data-content="right">' . $this->getContentMarkupByKey('right') . '</div>';
         $m[] = '</div>'; // row
         $m[] = '</div>'; // container
+
         return implode('', $m);
     }
 }

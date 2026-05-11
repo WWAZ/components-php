@@ -102,6 +102,7 @@ abstract class Component extends BaseComponent implements ComponentInterface
         if (in_array($name, $this->componentClasses)) {
             return true;
         }
+
         return false;
     }
 
@@ -219,6 +220,7 @@ abstract class Component extends BaseComponent implements ComponentInterface
         foreach ($parsed as $key => $value) {
             $data['content'][$key] = $value;
         }
+
         return $data;
     }
 
@@ -287,6 +289,7 @@ abstract class Component extends BaseComponent implements ComponentInterface
             }
             return null;
         }
+
         return $this->data['data'];
     }
 }

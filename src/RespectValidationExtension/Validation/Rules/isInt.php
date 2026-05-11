@@ -11,6 +11,7 @@ final class isInt extends AbstractRule
         if (is_int($input)) {
             return true;
         }
+
         return false;
     }
 }

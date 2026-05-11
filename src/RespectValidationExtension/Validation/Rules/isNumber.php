@@ -11,6 +11,7 @@ final class isNumber extends AbstractRule
         if (is_numeric($input)) {
             return true;
         }
+
         return false;
     }
 }

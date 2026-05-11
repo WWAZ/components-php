@@ -11,6 +11,7 @@ final class isComponent extends AbstractRule
         if (is_object($input) && is_subclass_of($input, 'wwaz\Components\BaseComponent')) {
             return true;
         }
+
         return false;
     }
 }

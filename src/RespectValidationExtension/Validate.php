@@ -18,7 +18,6 @@ class Validate
 {
     public static function multiple($rules, $key, $value)
     {
-
         $errors = [];
 
         $ruleClasses = self::getRuleClasses($rules);
@@ -63,6 +62,7 @@ class Validate
                 // echo 'Ø: ' . $rule . "\n";
             }
         }
+
         return $ruleClasses;
     }
 
@@ -81,6 +81,7 @@ class Validate
                 }
             }
         }
+
         return [
             $rule,
             $arguments,
