@@ -9,5 +9,5 @@ interface ComponentInterface
      *
      * @return string
      */
-    public function markup(): string|bool;
+    public function markup(): string;
 }
