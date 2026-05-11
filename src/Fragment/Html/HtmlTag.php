@@ -34,7 +34,7 @@ abstract class HtmlTag extends XmlTag
         return strtolower($classname[count($classname) - 1]);
     }
 
-    protected function markup()
+    public function markup(): string
     {
 
         $m = '<' . $this->getTag();

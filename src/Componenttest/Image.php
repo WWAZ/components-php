@@ -29,7 +29,7 @@ class Image extends Component
      * @param none
      * @return string
      */
-    protected function markup()
+    public function markup(): string
     {
         $m  = '<img';
         $m .= ' src="' . $this->getSrc() . '"';

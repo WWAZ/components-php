@@ -39,7 +39,7 @@ Factory::addNamespace('MyApp\\Components');
 
 ### Creating components
 
-A component is created by extending Component class. Each component defines its own properties, which can be freely configured and are passed during construction. Validation rules control the expected type and whether a value is required. Every component also implements a markup() method that returns the rendered HTML.
+A component is created by extending Component class. Each component defines its own properties, which can be freely configured and are passed during construction. Validation rules control the expected type and whether a value is required. Every component also requires a public markup() method that returns the component's markup.
 
 ```php
 namespace MyApp\Components;
@@ -55,7 +55,7 @@ class Card extends Component
             'text'  => 'required|isString',
         ],
     ];
-    protected function markup(): string
+    public function markup(): string
     {
         return '
             <h2 class="card__title">' . $this->content('title') . '</h2>
@@ -70,7 +70,7 @@ $component = new Card([
     'text' => 'My text'    
 ]);
 
-// Render and output the HTML markup
+// Render and output the markup
 echo $component->render();
 ```
 

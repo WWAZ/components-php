@@ -18,7 +18,7 @@ class Selector extends Component
      * @param none
      * @return string
      */
-    protected function markup()
+    public function markup(): string
     {
         return $this->getAttributes();
         // $m = [];

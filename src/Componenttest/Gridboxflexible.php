@@ -21,7 +21,7 @@ class Gridboxflexible extends Component
      * @param none
      * @return string
      */
-    protected function markup()
+    public function markup(): string
     {
         $m = [];
 
@@ -29,7 +29,6 @@ class Gridboxflexible extends Component
         $m[] = $this->renderColumns();
         $m[] = '</div>'; // container
         return implode('', $m);
-
     }
 
     protected function renderColumns()

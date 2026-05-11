@@ -18,6 +18,11 @@ abstract class BaseComponent
         'attributes' => [],
     ];
 
+    /**
+     * Reserved property keys.
+     *
+     * @var array
+     */
     protected $reservedPropertyKeys = [
         'attributes',
         'content',
@@ -87,6 +92,7 @@ abstract class BaseComponent
             $this->data['attributes'] = [];
         }
         $this->data['attributes'][$name] = $value;
+
         return $this;
     }
 
@@ -101,6 +107,7 @@ abstract class BaseComponent
         if (! isset($this->data['attributes'])) {
             return null;
         }
+
         return isset($this->data['attributes'][$name]) ? $this->data['attributes'][$name] : null;
     }
 
@@ -117,6 +124,7 @@ abstract class BaseComponent
                 return $this->data['attributes'];
             }
         }
+        
         return null;
     }
 
@@ -129,12 +137,8 @@ abstract class BaseComponent
     protected function htmlAttributes()
     {
         $m = [];
-
         if ($attributes = $this->getAttributes()) {
             foreach ($attributes as $k => $v) {
-
-                // if( $k === 'id' || $k === 'class' || strpos('data-', $k) !== false ){
-
                 if (! is_array($v)) {
                     if (! is_null($v)) {
                         $m[] = $k . '="' . trim($v) . '"';
@@ -143,8 +147,6 @@ abstract class BaseComponent
                     // e.g. case class names [cn1, cn2 ...]
                     $m[] = $k . '="' . implode(' ', $v) . '"';
                 }
-
-                // }
             }
             if (! empty($m)) {
                 return ' ' . implode(' ', $m);
@@ -171,6 +173,7 @@ abstract class BaseComponent
             }
         }
         $this->setAttribute('class', $class);
+
         return $this;
     }
 
@@ -195,6 +198,7 @@ abstract class BaseComponent
             }
         }
         $this->setAttribute('class', $class);
+
         return $this;
     }
 
@@ -220,6 +224,7 @@ abstract class BaseComponent
                 return true;
             }
         }
+
         return false;
     }
 
@@ -237,6 +242,7 @@ abstract class BaseComponent
             $e = explode(' ', $class);
             return $class;
         }
+
         return false;
     }
 
@@ -255,6 +261,7 @@ abstract class BaseComponent
             $m .= ' ';
         }
         $m .= 'class="' . implode(' ', $this->classList()) . '"';
+
         return $m;
     }
 
@@ -275,6 +282,7 @@ abstract class BaseComponent
                 $properties = array_merge($classVars['properties'], $properties);
             }
         }
+
         return $properties;
     }
 
@@ -297,6 +305,7 @@ abstract class BaseComponent
             $this->errorWarning($result['errors']);
             return false;
         }
+
         return $result['data'];
     }
 
@@ -473,6 +482,7 @@ abstract class BaseComponent
     {
         $classname = get_class($this);
         $classname = explode('\\', $classname);
+
         return trim(implode('.', $classname));
     }
 
@@ -490,6 +500,7 @@ abstract class BaseComponent
         if (is_object($var) && is_subclass_of($var, __NAMESPACE__ . '\BaseComponent')) {
             return true;
         }
+
         return false;
     }
 
@@ -536,6 +547,7 @@ abstract class BaseComponent
         if (! isset($this->data['content'][$key])) {
             return null;
         }
+
         return $this->data['content'][$key];
     }
 
@@ -568,17 +580,9 @@ abstract class BaseComponent
                 $m .= $content;
             }
         }
+
         return $m;
     }
-
-    /**
-     * Returns component's markup.
-     *
-     * @param none
-     * @return string
-     * @abstract
-     */
-    abstract protected function markup();
 
     /**
      * Returns html markup.
@@ -589,6 +593,7 @@ abstract class BaseComponent
     public function render()
     {
         $indenter = new Indenter();
+
         return $indenter->indent($this->markup());
     }
 
@@ -636,6 +641,7 @@ abstract class BaseComponent
         } else {
             $this->data['content'][] = $new;
         }
+
         return $this;
     }
 }

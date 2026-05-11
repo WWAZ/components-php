@@ -22,7 +22,7 @@ class Card extends Component
      * @param none
      * @return string
      */
-    protected function markup()
+    public function markup(): string
     {
         $m = [];
 
