@@ -3,7 +3,6 @@
 namespace wwaz\Components;
 
 use wwaz\Components\Parse\HtmlParser;
-use wwaz\Components\ComponentInterface;
 
 abstract class Component extends BaseComponent implements ComponentInterface
 {

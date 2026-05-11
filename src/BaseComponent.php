@@ -124,7 +124,7 @@ abstract class BaseComponent
                 return $this->data['attributes'];
             }
         }
-        
+
         return null;
     }
 
