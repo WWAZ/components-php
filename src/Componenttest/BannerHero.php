@@ -23,7 +23,7 @@ class BannerHero extends Component
      * @param none
      * @return string
      */
-    public function markup(): string
+    public function markup(): string|bool
     {
         $m   = [];
         $m[] = '<div class="fullsize-image"' . $this->getBackgroundImageStyle() . '>';

@@ -22,7 +22,7 @@ class Card extends Component
      * @param none
      * @return string
      */
-    public function markup(): string
+    public function markup(): string|bool
     {
         $m = [];
 

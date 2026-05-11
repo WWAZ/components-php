@@ -19,7 +19,7 @@ class Card extends Component
         ],
     ];
 
-    public function markup(): string
+    public function markup(): string|bool
     {
         return '
             <h2 class="card__title">' . $this->content('title') . '</h2>

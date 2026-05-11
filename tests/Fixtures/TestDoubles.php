@@ -21,7 +21,7 @@ class InspectableBaseComponent extends BaseComponent
         ],
     ];
 
-    public function markup(): string
+    public function markup(): string|bool
     {
         return '<article' . ($this->htmlAttributes() ?: '') . '>' . $this->getContentMarkup($this->getContent()) . '</article>';
     }
@@ -68,7 +68,7 @@ class InspectableComponent extends Component
         ],
     ];
 
-    public function markup(): string
+    public function markup(): string|bool
     {
         return '<section data-title="' . $this->cr('title') . '">Body</section>';
     }
@@ -87,7 +87,7 @@ class SimpleNestedComponent extends BaseComponent
         ],
     ];
 
-    public function markup(): string
+    public function markup(): string|bool
     {
         return '<span>' . $this->getContentMarkup($this->getContent()) . '</span>';
     }

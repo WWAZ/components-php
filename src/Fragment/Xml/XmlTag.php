@@ -125,7 +125,7 @@ class XmlTag extends BaseComponent
         return strtolower($this->tag);
     }
 
-    public function markup(): string
+    public function markup(): string|bool
     {
 
         $m = '<' . $this->getTag();

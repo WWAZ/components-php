@@ -10,7 +10,7 @@ class Table extends HtmlTag
       'hasTitleRow' => 'boolVal|default:false',
     ];
 
-    public function markup(): string
+    public function markup(): string|bool
     {
 
         $m[] = '<table' . $this->htmlAttributes() . '>';

@@ -18,7 +18,7 @@ class Callaction extends Component
      * @param none
      * @return string
      */
-    public function markup(): string
+    public function markup(): string|bool
     {
         $this->prependClass('callaction');
         return '<a' . $this->htmlAttributes() . '>' . $this->getContentMarkupByKey('text') . '</a>';
